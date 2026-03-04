@@ -91,6 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
     modalTriggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
+
+            // Reset modal view
+            const form = document.getElementById('bookingForm');
+            const successMsg = document.getElementById('bookingSuccess');
+            const modalHeader = modal.querySelector('.modal-header');
+
+            if (form) form.style.display = 'block';
+            if (successMsg) successMsg.style.display = 'none';
+            if (modalHeader) modalHeader.style.display = 'block';
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             isSubmitting = false; // Reset state
@@ -112,12 +122,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form Submission Handler (Linked to iframe onload in HTML)
     window.handleFormSubmit = () => {
         if (isSubmitting) {
-            alert('Thank you! Your appointment request has been sent to Dr. Jobin\'s team. Please check your email inbox to activate the request if it is your first time.');
-            bookingForm.reset();
-            closeModal();
+            const form = document.getElementById('bookingForm');
+            const successMsg = document.getElementById('bookingSuccess');
+            const modalHeader = modal.querySelector('.modal-header');
+
+            if (form && successMsg) {
+                form.style.display = 'none';
+                if (modalHeader) modalHeader.style.display = 'none';
+                successMsg.style.display = 'block';
+                form.reset();
+            }
+
             isSubmitting = false;
         }
     };
+
+    window.closeModal = closeModal; // Make it globally accessible for the success button
 
     if (bookingForm) {
         bookingForm.addEventListener('submit', () => {

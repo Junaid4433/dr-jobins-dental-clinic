@@ -450,7 +450,7 @@
                 <p>Fill out the form below and our team will get back to you shortly.</p>
             </div>
 
-            <form id="bookingForm" class="booking-form" action="https://formsubmit.co/junaid4433ss@gmail.com"
+            <form id="bookingForm" class="booking-form" action="https://formsubmit.co/haleemabeevi8943@gmail.com"
                 method="POST" target="submission_iframe">
                 <!-- FormSubmit Configuration -->
                 <input type="hidden" name="_subject" value="New Appointment Request - Dr. Jobin's Clinic">
@@ -474,6 +474,15 @@
 
                 <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
             </form>
+
+            <div id="bookingSuccess" class="booking-success" style="display: none;">
+                <div class="success-icon">
+                    <i class="ri-checkbox-circle-fill"></i>
+                </div>
+                <h3>Thank you!</h3>
+                <p>Our team will call you within 24 hours to confirm your appointment.</p>
+                <button class="btn btn-primary" onclick="window.closeModal()">Close</button>
+            </div>
 
             <iframe name="submission_iframe" style="display:none;"
                 onload="if(typeof window.handleFormSubmit === 'function') window.handleFormSubmit()"></iframe>
