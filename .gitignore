@@ -1,0 +1,19 @@
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# OS X folder attributes
+.DS_Store
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific ignores
+node_modules/
+dist/
+build/
+.env
